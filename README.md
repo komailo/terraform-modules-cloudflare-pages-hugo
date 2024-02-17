@@ -1,5 +1,4 @@
 <!-- BEGIN_TF_DOCS -->
-
 # Terraform Modules: Cloudflare Pages for Hugo Projects
 
 > :warning: This project is in active development. A proper release process will be added shortly. In the meantime, make sure you [select a ref](https://developer.hashicorp.com/terraform/language/modules/sources#selecting-a-revision) based on a commit SHA to avoid breaking your Terraform pipelines.
@@ -8,10 +7,10 @@ This Terraform module simplifies the process of setting up Cloudflare Pages for 
 
 Key Features:
 
-- Effortless Deployment: Easily deploy your Hugo projects to Cloudflare Pages with Terraform.
-- Optimized for Hugo: Designed specifically for Hugo projects, ensuring seamless integration and optimal performance.
-- Customization: Customize deployment configurations to suit your project requirements.
-- Infrastructure as Code: Define your Cloudflare Pages setup as code using Terraform, enabling versioning, collaboration, and automation.
+* Effortless Deployment: Easily deploy your Hugo projects to Cloudflare Pages with Terraform.
+* Optimized for Hugo: Designed specifically for Hugo projects, ensuring seamless integration and optimal performance.
+* Customization: Customize deployment configurations to suit your project requirements.
+* Infrastructure as Code: Define your Cloudflare Pages setup as code using Terraform, enabling versioning, collaboration, and automation.
 
 ## Quick Start Guide
 
@@ -66,48 +65,53 @@ module "cloudflare_pages_hugo_project" {
 }
 ```
 
+
+
 ## Inputs
 
-| Name                                                                                                                              | Description                                                                                                                                                                                                                                                                                                          | Type                | Default    | Required |
-| --------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ---------- | :------: |
-| <a name="input_account_id"></a> [account_id](#input_account_id)                                                                   | The Cloudflare account ID.                                                                                                                                                                                                                                                                                           | `string`            | n/a        |   yes    |
-| <a name="input_project_name"></a> [project_name](#input_project_name)                                                             | The name of the Cloudflare pages project.                                                                                                                                                                                                                                                                            | `string`            | n/a        |   yes    |
-| <a name="input_repo_name"></a> [repo_name](#input_repo_name)                                                                      | The name of the repository. This is the part after the `repo_owner` in the repository slug.                                                                                                                                                                                                                          | `string`            | n/a        |   yes    |
-| <a name="input_repo_owner"></a> [repo_owner](#input_repo_owner)                                                                   | The owner of the repository. This is the very first part of the repository slug.                                                                                                                                                                                                                                     | `string`            | n/a        |   yes    |
-| <a name="input_alias_www"></a> [alias_www](#input_alias_www)                                                                      | If true, an alias record (CNAME) `www` will be created for all custom domains                                                                                                                                                                                                                                        | `bool`              | `true`     |    no    |
-| <a name="input_build_root_dir"></a> [build_root_dir](#input_build_root_dir)                                                       | The root directory in the repository where the build command should be run. Defaults to the root of the repository.                                                                                                                                                                                                  | `string`            | `""`       |    no    |
-| <a name="input_custom_domains"></a> [custom_domains](#input_custom_domains)                                                       | A list of custom domains to associate with the project. Do not add domains with www. prefix here, use the `alias_www` variable instead. Each custom domain must have a `name` and `zone_id` attribute. The `name` attribute is the domain name and the `zone_id` attribute is the Cloudflare zone ID for the domain. | `list(map(string))` | `[]`       |    no    |
-| <a name="input_deployments_enabled"></a> [deployments_enabled](#input_deployments_enabled)                                        | Enable deployments for the project.                                                                                                                                                                                                                                                                                  | `bool`              | `true`     |    no    |
-| <a name="input_environment_variables"></a> [environment_variables](#input_environment_variables)                                  | A map of environment variables to set for the project in production and preview deployments. The map key is the environment variable name and the value is the environment variable value.                                                                                                                           | `map(string)`       | `{}`       |    no    |
-| <a name="input_pr_comments_enabled"></a> [pr_comments_enabled](#input_pr_comments_enabled)                                        | Enable Cloudflare Pages to comment on Pull Requests if preview deployments are enabled.                                                                                                                                                                                                                              | `bool`              | `true`     |    no    |
-| <a name="input_preview_environment_variables"></a> [preview_environment_variables](#input_preview_environment_variables)          | A map of environment variables to set for the project in preview deployments in precedence to `environment_variables`. The map key is the environment variable name and the value is the environment variable value.                                                                                                 | `map(string)`       | `{}`       |    no    |
-| <a name="input_production_branch"></a> [production_branch](#input_production_branch)                                              | The Git branch to use for production deployments.                                                                                                                                                                                                                                                                    | `string`            | `"main"`   |    no    |
-| <a name="input_production_environment_variables"></a> [production_environment_variables](#input_production_environment_variables) | A map of environment variables to set for the project in production deployments in precedence to `environment_variables`. The map key is the environment variable name and the value is the environment variable value.                                                                                              | `map(string)`       | `{}`       |    no    |
-| <a name="input_repo_type"></a> [repo_type](#input_repo_type)                                                                      | The SCM platform where the repository is hosted. Valid values are 'github' or 'gitlab'.                                                                                                                                                                                                                              | `string`            | `"github"` |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_account_id"></a> [account\_id](#input\_account\_id) | The Cloudflare account ID. | `string` | n/a | yes |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the Cloudflare pages project. | `string` | n/a | yes |
+| <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | The name of the repository. This is the part after the `repo_owner` in the repository slug. | `string` | n/a | yes |
+| <a name="input_repo_owner"></a> [repo\_owner](#input\_repo\_owner) | The owner of the repository. This is the very first part of the repository slug. | `string` | n/a | yes |
+| <a name="input_alias_www"></a> [alias\_www](#input\_alias\_www) | If true, an alias record (CNAME) `www` will be created for all custom domains | `bool` | `true` | no |
+| <a name="input_build_root_dir"></a> [build\_root\_dir](#input\_build\_root\_dir) | The root directory in the repository where the build command should be run. Defaults to the root of the repository. | `string` | `""` | no |
+| <a name="input_custom_domains"></a> [custom\_domains](#input\_custom\_domains) | A list of custom domains to associate with the project. Do not add domains with www. prefix here, use the `alias_www` variable instead. Each custom domain must have a `name` and `zone_id` attribute. The `name` attribute is the domain name and the `zone_id` attribute is the Cloudflare zone ID for the domain. | `list(map(string))` | `[]` | no |
+| <a name="input_deployments_enabled"></a> [deployments\_enabled](#input\_deployments\_enabled) | Enable deployments for the project. | `bool` | `true` | no |
+| <a name="input_environment_variables"></a> [environment\_variables](#input\_environment\_variables) | A map of environment variables to set for the project in production and preview deployments. The map key is the environment variable name and the value is the environment variable value. | `map(string)` | `{}` | no |
+| <a name="input_pr_comments_enabled"></a> [pr\_comments\_enabled](#input\_pr\_comments\_enabled) | Enable Cloudflare Pages to comment on Pull Requests if preview deployments are enabled. | `bool` | `true` | no |
+| <a name="input_preview_environment_variables"></a> [preview\_environment\_variables](#input\_preview\_environment\_variables) | A map of environment variables to set for the project in preview deployments in precedence to `environment_variables`. The map key is the environment variable name and the value is the environment variable value. | `map(string)` | `{}` | no |
+| <a name="input_production_branch"></a> [production\_branch](#input\_production\_branch) | The Git branch to use for production deployments. | `string` | `"main"` | no |
+| <a name="input_production_environment_variables"></a> [production\_environment\_variables](#input\_production\_environment\_variables) | A map of environment variables to set for the project in production deployments in precedence to `environment_variables`. The map key is the environment variable name and the value is the environment variable value. | `map(string)` | `{}` | no |
+| <a name="input_repo_type"></a> [repo\_type](#input\_repo\_type) | The SCM platform where the repository is hosted. Valid values are 'github' or 'gitlab'. | `string` | `"github"` | no |
+
+
+
+
 
 ## Providers
 
-| Name                                                                  | Version |
-| --------------------------------------------------------------------- | ------- |
-| <a name="provider_cloudflare"></a> [cloudflare](#provider_cloudflare) | >~ 4.0  |
+| Name | Version |
+|------|---------|
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >~ 4.0 |
 
 ## Requirements
 
-| Name                                                                        | Version |
-| --------------------------------------------------------------------------- | ------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement_terraform)    | >~ 1.1  |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement_cloudflare) | >~ 4.0  |
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >~ 1.1 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >~ 4.0 |
 
 ## Resources
 
-| Name                                                                                                                                                               | Type     |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
-| [cloudflare_pages_domain.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain)                           | resource |
-| [cloudflare_pages_domain.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain)                              | resource |
+| Name | Type |
+|------|------|
+| [cloudflare_pages_domain.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain) | resource |
+| [cloudflare_pages_domain.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain) | resource |
 | [cloudflare_pages_project.cloudflare_pages_hugo_github_project](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_project) | resource |
-| [cloudflare_record.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record)                                       | resource |
-| [cloudflare_record.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record)                                          | resource |
-
+| [cloudflare_record.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
+| [cloudflare_record.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
 <!-- END_TF_DOCS -->
 
 ## Terraform Cannot Enable Web Analytics
