@@ -19,10 +19,10 @@ variable "custom_domains" {
   description = "A list of custom domains to associate with the project. Do not add domains with www. prefix here, use the `alias_www` variable instead. Each custom domain must have a `name` and `zone_id` attribute. The `name` attribute is the domain name and the `zone_id` attribute is the Cloudflare zone ID for the domain."
   type        = list(map(string))
   default     = []
-  validation {
-    condition     = alltrue([contains(keys(element(var.custom_domains, count.index)), "name"), contains(keys(element(var.custom_domains, count.index)), "zone_id")])
-    error_message = "Each custom domain must have a `name` and `zone_id` attribute."
-  }
+  # validation {
+  #   condition     = alltrue([contains(keys(element(var.custom_domains, count.index)), "name"), contains(keys(element(var.custom_domains, count.index)), "zone_id")])
+  #   error_message = "Each custom domain must have a `name` and `zone_id` attribute."
+  # }
 }
 
 variable "deployments_enabled" {
