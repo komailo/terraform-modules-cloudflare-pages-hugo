@@ -1,5 +1,5 @@
 module "cloudflare_pages_hugo_project" {
-  source       = "https://github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
+  source       = "github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
   account_id   = "my-cloudflare-account-id"
   project_name = "my-project"
   repo_owner   = "Komailio"

@@ -18,7 +18,7 @@ locals {
 
 module "cloudflare_pages_hugo_project" {
   for_each       = { for cloudflare_page in local.cloudflare_pages : cloudflare_page.name => cloudflare_page }
-  source         = "https://github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
+  source         = "github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
   account_id     = local.account_id
   project_name   = each.key
   repo_owner     = each.value.repo_owner
