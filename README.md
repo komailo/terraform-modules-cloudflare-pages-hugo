@@ -18,7 +18,7 @@ Key Features:
 
 ```hcl
 module "cloudflare_pages_hugo_project" {
-  source       = "https://github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
+  source       = "github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
   account_id   = "my-cloudflare-account-id"
   project_name = "my-project"
   repo_owner   = "Komailio"
@@ -56,7 +56,7 @@ locals {
 
 module "cloudflare_pages_hugo_project" {
   for_each       = { for cloudflare_page in local.cloudflare_pages : cloudflare_page.name => cloudflare_page }
-  source         = "https://github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
+  source         = "github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
   account_id     = local.account_id
   project_name   = each.key
   repo_owner     = each.value.repo_owner
@@ -94,14 +94,14 @@ module "cloudflare_pages_hugo_project" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | >~ 4.0 |
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | ~> 4.0 |
 
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >~ 1.1 |
-| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >~ 4.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.1 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | ~> 4.0 |
 
 ## Resources
 
