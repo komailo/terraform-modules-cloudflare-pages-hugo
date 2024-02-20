@@ -46,6 +46,10 @@ resource "cloudflare_pages_domain" "page_domains" {
   account_id   = var.account_id
   project_name = var.project_name
   domain       = each.key
+  #
+  depends_on = [
+    cloudflare_pages_project.cloudflare_pages_hugo_github_project
+  ]
 }
 
 resource "cloudflare_record" "page_domains" {
@@ -63,6 +67,9 @@ resource "cloudflare_pages_domain" "www_alias" {
   account_id   = var.account_id
   project_name = var.project_name
   domain       = "www.${each.key}"
+  depends_on = [
+    cloudflare_pages_project.cloudflare_pages_hugo_github_project
+  ]
 }
 
 resource "cloudflare_record" "www_alias" {
