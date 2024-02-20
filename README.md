@@ -5,7 +5,6 @@
 
 This Terraform module simplifies the process of setting up Cloudflare Pages for your [Hugo](https://gohugo.io/) projects. Cloudflare Pages provides a powerful platform for hosting static websites, and with this module, you can effortlessly deploy your Hugo-based sites with Cloudflare's global network.
 
-
 Key Features:
 
 * Effortless Deployment: Easily deploy your Hugo projects to Cloudflare Pages with Terraform.
