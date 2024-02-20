@@ -46,7 +46,7 @@ resource "cloudflare_pages_domain" "page_domains" {
   account_id   = var.account_id
   project_name = var.project_name
   domain       = each.key
-  # 
+  #
   depends_on = [
     cloudflare_pages_project.cloudflare_pages_hugo_github_project
   ]
