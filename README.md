@@ -18,11 +18,11 @@ Key Features:
 
 ```hcl
 module "cloudflare_pages_hugo_project" {
-  source       = "github.com/Komailio/terraform-modules-cloudflare-pages-hugo"
+  source       = "github.com/komailio/terraform-modules-cloudflare-pages-hugo"
   account_id   = "my-cloudflare-account-id"
-  project_name = "my-project"
-  repo_owner   = "Komailio"
-  repo_name    = "hugo-komail.io"
+  project_name = "komailio"
+  repo_owner   = "komailo"
+  repo_name    = "komail.io"
   custom_domains = [
     # Don't add www records, they will be created for you if `alias_www` is set to true (the default) in the module parameters.
     {
