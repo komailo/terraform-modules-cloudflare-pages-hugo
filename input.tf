@@ -85,3 +85,9 @@ variable "repo_type" {
     error_message = "The repo_type must be either 'github' or 'gitlab'."
   }
 }
+
+variable "build_command" {
+  description = "The build command to use for building the application"
+  type        = string
+  default     = "hugo"
+}
