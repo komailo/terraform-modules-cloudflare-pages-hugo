@@ -76,6 +76,7 @@ module "cloudflare_pages_hugo_project" {
 | <a name="input_repo_name"></a> [repo\_name](#input\_repo\_name) | The name of the repository. This is the part after the `repo_owner` in the repository slug. | `string` | n/a | yes |
 | <a name="input_repo_owner"></a> [repo\_owner](#input\_repo\_owner) | The owner of the repository. This is the very first part of the repository slug. | `string` | n/a | yes |
 | <a name="input_alias_www"></a> [alias\_www](#input\_alias\_www) | If true, an alias record (CNAME) `www` will be created for all custom domains | `bool` | `true` | no |
+| <a name="input_build_command"></a> [build\_command](#input\_build\_command) | The build command to use for building the application | `string` | `"hugo"` | no |
 | <a name="input_build_root_dir"></a> [build\_root\_dir](#input\_build\_root\_dir) | The root directory in the repository where the build command should be run. Defaults to the root of the repository. | `string` | `""` | no |
 | <a name="input_custom_domains"></a> [custom\_domains](#input\_custom\_domains) | A list of custom domains to associate with the project. Do not add domains with www. prefix here, use the `alias_www` variable instead. Each custom domain must have a `name` and `zone_id` attribute. The `name` attribute is the domain name and the `zone_id` attribute is the Cloudflare zone ID for the domain. | `list(map(string))` | `[]` | no |
 | <a name="input_deployments_enabled"></a> [deployments\_enabled](#input\_deployments\_enabled) | Enable deployments for the project. | `bool` | `true` | no |
