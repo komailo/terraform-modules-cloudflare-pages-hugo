@@ -7,28 +7,28 @@ resource "cloudflare_pages_project" "cloudflare_pages_hugo_github_project" {
     build_command   = var.build_command
     destination_dir = "public"
     root_dir        = var.build_root_dir
-  }
+}
 
-  deployment_configs {
-    preview {
-      always_use_latest_compatibility_date = true
+  deployment_configs = {
+  preview = {
+  always_use_latest_compatibility_date = true
       environment_variables = merge(var.environment_variables, var.preview_environment_variables, {
         "HUGO_ENVIRONMENT" = "preview"
       })
       usage_model = "standard"
-    }
-    production {
-      always_use_latest_compatibility_date = false
+}
+    production = {
+  always_use_latest_compatibility_date = false
       environment_variables = merge(var.environment_variables, var.production_environment_variables, {
         "HUGO_ENVIRONMENT" = "production"
       })
       usage_model = "standard"
-    }
-  }
+}
+}
 
-  source {
+  source =[ {
     type = var.repo_type
-    config {
+    config =[ {
       deployments_enabled        = var.deployments_enabled
       owner                      = var.repo_owner
       pr_comments_enabled        = var.pr_comments_enabled
@@ -37,8 +37,8 @@ resource "cloudflare_pages_project" "cloudflare_pages_hugo_github_project" {
       preview_deployment_setting = "all"
       production_branch          = var.production_branch
       repo_name                  = var.repo_name
-    }
-  }
+    }]
+  }]
 }
 
 resource "cloudflare_pages_domain" "page_domains" {
