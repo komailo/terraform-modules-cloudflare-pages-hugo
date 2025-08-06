@@ -108,11 +108,11 @@ module "cloudflare_pages_hugo_project" {
 
 | Name | Type |
 |------|------|
+| [cloudflare_dns_record.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/dns_record) | resource |
+| [cloudflare_dns_record.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/dns_record) | resource |
 | [cloudflare_pages_domain.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain) | resource |
 | [cloudflare_pages_domain.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_domain) | resource |
 | [cloudflare_pages_project.cloudflare_pages_hugo_github_project](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/pages_project) | resource |
-| [cloudflare_record.page_domains](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
-| [cloudflare_record.www_alias](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
 <!-- END_TF_DOCS -->
 
 ## Terraform Cannot Enable Web Analytics
