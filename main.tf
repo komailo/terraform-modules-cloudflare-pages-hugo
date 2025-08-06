@@ -3,8 +3,8 @@ resource "cloudflare_pages_project" "cloudflare_pages_hugo_github_project" {
   name              = var.project_name
   production_branch = var.production_branch
 
-  build_config = {
-  build_command   = "hugo"
+  build_config {
+    build_command   = var.build_command
     destination_dir = "public"
     root_dir        = var.build_root_dir
 }
