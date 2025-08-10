@@ -60,7 +60,7 @@ resource "cloudflare_dns_record" "page_domains" {
   type     = "CNAME"
   comment  = "managed by: terraform"
   proxied  = true
-  ttl      = 1
+  ttl      = 60
 }
 
 resource "cloudflare_pages_domain" "www_alias" {
@@ -81,5 +81,5 @@ resource "cloudflare_dns_record" "www_alias" {
   type     = "CNAME"
   comment  = "managed by: terraform"
   proxied  = true
-  ttl      = 1
+  ttl      = 60
 }
